@@ -11,12 +11,18 @@ if ($_GET["id"]) {
     echo ("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "
-        DELETE FROM paganti
-        WHERE id = $id
+  $sql1 = "
+        DELETE FROM pagamenti
+        WHERE pagante_id = $id
         ";
 
-  $result = $conn->query($sql);
+  $sql2 = "
+          DELETE FROM paganti
+          WHERE id = $id
+          ";
+          
+  $conn->query($sql1);
+  $conn->query($sql2);
 
   $conn->close();
 

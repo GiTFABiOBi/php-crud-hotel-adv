@@ -15,7 +15,7 @@ if ($_GET["id"] && $_GET["name"] && $_GET["lastname"]) {
 
   $sql = "
         UPDATE paganti
-        SET name = $name, lastname = $lastname
+        SET name = '$name', lastname = '$lastname'
         WHERE id = $id
         ";
 
